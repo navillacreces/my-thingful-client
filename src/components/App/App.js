@@ -9,6 +9,10 @@ import LoginPage from '../../routes/LoginPage/LoginPage'
 import RegistrationPage from '../../routes/RegistrationPage/RegistrationPage'
 import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage'
 import './App.css'
+import PrivateRoute from '../Utils/PrivateRoute'
+import PublicOnlyRoute from '../Utils/PublicOnlyRoute'
+//import PublicOnlyRoute from '../Utils/PublicOnlyRoute'
+
 
 class App extends Component {
   state = { hasError: false }
@@ -32,15 +36,15 @@ class App extends Component {
               path={'/'}
               component={ThingListPage}
             />
-            <Route
+            <PublicOnlyRoute
               path={'/login'}
               component={LoginPage}
             />
-            <Route
+            <PublicOnlyRoute
               path={'/register'}
               component={RegistrationPage}
             />
-            <Route
+            <PrivateRoute
               path={'/thing/:thingId'}
               component={ThingPage}
             />
